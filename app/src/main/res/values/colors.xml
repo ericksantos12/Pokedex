@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- Identity and Greyscale -->
     <color name="dark">#212121</color>
     <color name="medium">#666666</color>
     <color name="light">#E0E0E0</color>
@@ -7,4 +8,23 @@
     <color name="white">#FFFFFFFF</color>
     <color name="primary">#DC0A2D</color>
 
+    <!-- Types -->
+    <color name="bug">#A7B723</color>
+    <color name="dark_type">#75574C</color>
+    <color name="dragon">#7037FF</color>
+    <color name="electric">#F9CF30</color>
+    <color name="fairy">#E69EAC</color>
+    <color name="fighting">#C12239</color>
+    <color name="fire">#F57D31</color>
+    <color name="flying">#A891EC</color>
+    <color name="ghost">#705598</color>
+    <color name="normal">#AAA67F</color>
+    <color name="grass">#74CB48</color>
+    <color name="ground">#DECD16</color>
+    <color name="ice">#9AD6DF</color>
+    <color name="poison">#A43E9E</color>
+    <color name="psychic">#FB5584</color>
+    <color name="rock">#B6A136</color>
+    <color name="steel">#B7B9D0</color>
+    <color name="water">#6493EB</color>
 </resources>
