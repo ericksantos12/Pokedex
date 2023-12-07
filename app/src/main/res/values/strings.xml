@@ -1,3 +1,26 @@
 <resources>
     <string name="app_name">pokedex</string>
+    <string name="pokedex">Pokédex</string>
+    <string name="search">Search</string>
+
+    <string name="some_id">#999</string>
+
+    <string name="bug">Bug</string>
+    <string name="dark_type">Dark</string>
+    <string name="dragon">Dragon</string>
+    <string name="electric">Electric</string>
+    <string name="fairy">Fairy</string>
+    <string name="fighting">Fighting</string>
+    <string name="fire">Fire</string>
+    <string name="flying">Flying</string>
+    <string name="ghost">Ghost</string>
+    <string name="normal">Normal</string>
+    <string name="grass">Grass</string>
+    <string name="ground">Ground</string>
+    <string name="ice">Ice</string>
+    <string name="poison">Poison</string>
+    <string name="psychic">Psychic</string>
+    <string name="rock">Rock</string>
+    <string name="steel">Steel</string>
+    <string name="water">Water</string>
 </resources>
