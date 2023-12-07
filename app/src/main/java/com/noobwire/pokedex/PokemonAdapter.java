@@ -19,41 +19,47 @@ import java.util.List;
 import java.util.Map;
 
 
-// The adapter class is used to provide a view for each pokemon, see the "item_pokemon" activity.
-
-// This code uses 'Glide' library to load the imagies, and also 'Chip' library that views to display the 'pokemon' types.
 public class PokemonAdapter extends RecyclerView.Adapter<PokemonAdapter.ViewHolder> {
-    private List<Pokemon> pokemonList; // the array with pokemons
+    private List<Pokemon> pokemonList;
 
     public PokemonAdapter(List<Pokemon> pokemonList) {
         this.pokemonList = pokemonList;
     }
 
-    //The "ViewHolder onCreateViewHolder" is called when the RecyclerView needs a new ViewHolder object.
-    // It inflates a layout resource file (R.layout.item_pokemon) to create a View object and returns a ViewHolder object that holds the View.
-    // It also sets a click listener on the View to open the details activity of the selected Pokemon object.
-
     @NonNull
     @Override
+    // Método onCreateViewHolder, responsável por criar uma nova instância de ViewHolder.
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        // Cria uma nova View. Usa o LayoutInflater para inflar (criar) a View a partir de um layout XML.
+        // Neste caso, está inflando o layout 'item_pokemon'.
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_pokemon, parent, false);
+
+        // Cria um novo ViewHolder, passando a View que acabou de ser inflada.
         ViewHolder viewHolder = new ViewHolder(view);
+
         view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // Obtém a posição do item no adaptador.
                 int position = viewHolder.getAdapterPosition();
+
+                // Usa a posição para obter o Pokémon correspondente da lista 'pokemonList'.
                 Pokemon pokemon = pokemonList.get(position);
+
+                // Inicia uma nova Activity usando a intenção (Intent) que é retornada pelo método 'getIntent' do Pokémon.
                 v.getContext().startActivity(pokemon.getIntent(v.getContext()));
             }
         });
+
+        // Retorna o ViewHolder criado. Este ViewHolder será usado pelo RecyclerView para exibir um item.
         return viewHolder;
     }
 
-    // "onBindViewHolder" updates the ViewHolder with the data of the corresponding Pokemon object,
-    // sets the ImageView with the Pokemon image using Glide, and adds Chip views for each Pokemon type.
 
     @Override
+    // Método onBindViewHolder, responsável por vincular os dados a uma View (ViewHolder) em uma posição específica.
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+        // Criação de um Map para mapear os tipos de Pokémon a uma cor específica.
         Map<String, Integer> colorMap = new HashMap<>();
         colorMap.put("bug", R.color.bug);
         colorMap.put("dark_type", R.color.dark_type);
@@ -74,27 +80,38 @@ public class PokemonAdapter extends RecyclerView.Adapter<PokemonAdapter.ViewHold
         colorMap.put("steel", R.color.steel);
         colorMap.put("water", R.color.water);
 
+        // Obtém o objeto Pokémon na posição específica da lista.
         Pokemon pokemon = pokemonList.get(position);
         holder.nameTextView.setText(pokemon.getName());
         holder.idTextView.setText(String.format("#%03d", pokemon.getId()));
+
+        // Usa a biblioteca Glide para carregar a imagem do Pokémon de uma URL e exibi-la no ImageView do ViewHolder.
         Glide.with(holder.itemView.getContext())
                 .load(pokemon.getImageUrl())
                 .into(holder.imageView);
+
+        // Remove todas as visualizações (chips) existentes no ChipGroup do ViewHolder.
         holder.typeChipGroup.removeAllViews();
+
+        // Itera sobre os tipos do Pokémon e para cada tipo:
         for (String type : pokemon.getTypes()) {
             Chip chip = new Chip(holder.itemView.getContext());
             chip.setText(type);
             chip.setChipBackgroundColorResource(colorMap.get(type));
             chip.setTextColor(Color.WHITE);
+
+            // Adiciona o Chip ao ChipGroup no ViewHolder.
             holder.typeChipGroup.addView(chip);
         }
     }
 
     @Override
     public int getItemCount() {
-        return pokemonList.size(); // returns the size of the pokemon list.
+        return pokemonList.size();
     }
 
+    // Classe ViewHolder, que estende RecyclerView.ViewHolder.
+    // ViewHolder fornece uma referência para as views para cada item de dados.
     public static class ViewHolder extends RecyclerView.ViewHolder {
         public TextView nameTextView;
         public TextView idTextView;
