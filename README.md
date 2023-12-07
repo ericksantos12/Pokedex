@@ -1,4 +1,4 @@
-<h1 align="center">📱Views Navigation</h1>
+<h1 align="center">📖 Pokedex</h1>
 
 ## 📝 Índice
 - [🧐 Sobre](#-sobre)
@@ -8,6 +8,14 @@
 ## 🧐 Sobre
 
 Este projeto consiste em uma Pokédex desenvolvida utilizando a PokeAPI, focada em compilar informações sobre uma variedade de Pokémons. Ele foi criado como parte de uma atividade acadêmica para a disciplina de Desenvolvimento Mobile, sob a orientação do professor Paulo Rogério. Esta iniciativa representa uma aplicação prática dos conceitos aprendidos no curso, integrando conhecimentos de programação móvel com o interesse pelo universo Pokémon.
+
+## 📷 Screenshots
+
+<div align="center">
+  <img src="https://files.catbox.moe/i20b90.png"/>
+  <img src="https://files.catbox.moe/dxynny.png"/>
+  <img src="https://files.catbox.moe/6epbe5.png"/>
+</div>
 
 ## ⛏️ Ferramentas Utilizadas
 
