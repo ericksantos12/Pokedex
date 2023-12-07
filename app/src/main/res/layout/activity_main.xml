@@ -18,35 +18,31 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Pokédex"
+            android:text="@string/pokedex"
             android:textStyle="bold"
             android:textColor="@color/white"
-            android:drawableLeft="@drawable/pokeball"
-            android:drawableTint="@color/white"
             android:textSize="24sp"
             android:drawablePadding="24dp"
-            />
+            app:drawableLeftCompat="@drawable/pokeball"
+            app:drawableTint="@color/white" />
 
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Search"
-            />
+<!--        <EditText-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text="@string/search"-->
+<!--            android:textColor="@color/white"-->
+<!--            />-->
+
     </LinearLayout>
 
 
-        <GridLayout
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/grid_background"
+            android:background="@drawable/white_background"
             android:padding="15dp"
-
-            >
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Hello world!"/>
-
-        </GridLayout>
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            />
 </LinearLayout>
