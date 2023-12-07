@@ -2,6 +2,7 @@
 
 ## 📝 Índice
 - [🧐 Sobre](#-sobre)
+- [📷 Screenshots](#-screenshots)
 - [⛏️ Ferramentas Utilizadas](#️-ferramentas-utilizadas)
 - [✍️ Autores](#️-autores)
 
