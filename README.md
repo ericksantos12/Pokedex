@@ -35,3 +35,6 @@ Este projeto consiste em uma Pokédex desenvolvida utilizando a PokeAPI, focada 
     </tr>
   </tbody>
 </table>
+
+## ✨ Credits
+- [Layout by Ricardo Schiniegoski](https://www.figma.com/community/file/979132880663340794/pokedex)
