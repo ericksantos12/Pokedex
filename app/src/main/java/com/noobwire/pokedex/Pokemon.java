@@ -14,6 +14,8 @@ public class Pokemon {
     private List<String> stats;
     private String imageUrl;
     private List<String> types;
+    private String description;
+    private List<String> moves;
 
     public String getName() {
         return name;
@@ -43,6 +45,14 @@ public class Pokemon {
         return types;
     }
 
+    public List<String> getMoves() {
+        return moves;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
     private Pokemon(Builder builder) {
         this.name = builder.name;
         this.id = builder.id;
@@ -51,6 +61,8 @@ public class Pokemon {
         this.stats = builder.stats;
         this.imageUrl = builder.imageUrl;
         this.types = builder.types;
+        this.description = builder.description;
+        this.moves = builder.moves;
     }
 
 
@@ -62,6 +74,9 @@ public class Pokemon {
         private List<String> stats;
         private String imageUrl;
         private List<String> types;
+
+        private String description;
+        private List<String> moves;
 
         public Builder name(String name) {
             this.name = name;
@@ -98,6 +113,15 @@ public class Pokemon {
             return this;
         }
 
+        public Builder description(String description) {
+            this.description = description;
+            return this;
+        }
+
+        public Builder moves(List<String> moves) {
+            this.moves = moves;
+            return this;
+        }
         public Pokemon build() {
             return new Pokemon(this);
         }
@@ -112,6 +136,8 @@ public class Pokemon {
         intent.putStringArrayListExtra("stats", new ArrayList<String>(stats));
         intent.putExtra("weight", weight);
         intent.putExtra("height", height);
+        intent.putStringArrayListExtra("moves", new ArrayList<String>(moves));
+        intent.putExtra("description", description);
 
         return intent;
     }

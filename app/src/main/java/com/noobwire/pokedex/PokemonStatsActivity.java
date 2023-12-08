@@ -23,7 +23,7 @@ import java.util.Map;
 public class PokemonStatsActivity extends AppCompatActivity {
     private LinearLayout card;
     private ImageView imageView;
-    private TextView nameTextView, weightTextNumber, heightTextNumber, hpTextNumber, atkTextNumber, defTextNumber, spAtkTextNumber, spDefTextNumber, spdTextNumber, aboutText, baseStatsText, idTextView;
+    private TextView nameTextView, weightTextNumber, heightTextNumber, hpTextNumber, atkTextNumber, defTextNumber, spAtkTextNumber, spDefTextNumber, spdTextNumber, aboutText, baseStatsText, idTextView, movesTextView;
     private ProgressBar hpBar, atkBar, defBar, spAtkBar, spDefBar, spdBar;
     private ChipGroup typeChipGroup;
 
@@ -33,6 +33,7 @@ public class PokemonStatsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pokemon_stats);
 
+        movesTextView = findViewById(R.id.pokemon_moves);
         idTextView = findViewById(R.id.pokemon_id);
         card = findViewById(R.id.pokemon_details);
         aboutText = findViewById(R.id.about_text);
@@ -85,6 +86,7 @@ public class PokemonStatsActivity extends AppCompatActivity {
             String weight = intent.getStringExtra("weight");
             String height = intent.getStringExtra("height");
             List<String> stats = intent.getStringArrayListExtra("stats");
+            List<String> moves = intent.getStringArrayListExtra("moves");
 
             int typeColorId = colorMap.get(types.get(0));
             int typeColor = ContextCompat.getColor(this, typeColorId);
@@ -97,6 +99,7 @@ public class PokemonStatsActivity extends AppCompatActivity {
                     .weight(weight)
                     .height(height)
                     .stats(stats)
+                    .moves(moves)
                     .build();
 
             if (pokemon != null) {
@@ -108,6 +111,17 @@ public class PokemonStatsActivity extends AppCompatActivity {
                 nameTextView.setText(pokemon.getName());
                 weightTextNumber.setText(pokemon.getWeight());
                 heightTextNumber.setText(pokemon.getHeight());
+
+                String moveString = "";
+                for(String move : pokemon.getMoves()){
+                    if (moveString.equals("")) {
+                        moveString = move;
+                    } else {
+                        moveString = moveString.concat("\n" + move);
+                    }
+                }
+
+                movesTextView.setText(moveString);
 
                 for (String type : types) {
                     Chip chip = new Chip(this);
