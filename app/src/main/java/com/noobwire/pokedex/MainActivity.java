@@ -128,6 +128,13 @@ public class MainActivity extends AppCompatActivity {
                 types.add(typesArray.getJSONObject(j).getJSONObject("type").getString("name"));
             }
 
+            // Extrai as descricões dos moves
+            List<String> moves = new ArrayList<>();
+            JSONArray movesArray = response.getJSONArray("moves");
+            for (int i = 0; i < 2; i++) {
+                moves.add(capitalizeFirstLetter(movesArray.getJSONObject(i).getJSONObject("move").getString("name")));
+            }
+
             // Cria um objeto Pokémon usando o padrão Builder
             Pokemon pokemon = new Pokemon.Builder()
                     .name(capitalizeFirstLetter(name)) // Capitaliza a primeira letra do nome
@@ -137,6 +144,7 @@ public class MainActivity extends AppCompatActivity {
                     .stats(stats)
                     .types(types)
                     .imageUrl(imageUrl)
+                    .moves(moves)
                     .build();
 
             // Adiciona o objeto Pokémon à lista de Pokémon
